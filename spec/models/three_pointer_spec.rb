@@ -1,17 +1,23 @@
 require 'rails_helper'
 
 RSpec.describe ThreePointer, type: :model do
-  it 'is valid with valid attributes' do
-    expect(ThreePointer.new).to be_valid
-  end
+  context 'validation tests' do
+    let(:three_pointer) { create(:three_pointer) }
 
-  it 'is not valid with a non-integer' do
-    free_throw = ThreePointer.new(value: 'not-an-integer')
-    expect(free_throw).to_not be_valid
-  end
+    it 'is valid with valid attributes' do
+      expect(three_pointer.save).to be true
+    end
 
-  it 'has a value of 3' do
-    free_throw = ThreePointer.create
-    expect(free_throw.value).to eq(3)
+    it 'is not valid without a game_id' do
+      three_pointer.game_id = nil
+
+      expect(three_pointer.save).to be false
+    end
+
+    it 'is not valid if value is not an integer' do
+      three_pointer.value = 'not-and-integer'
+
+      expect(three_pointer.save).to be false
+    end
   end
 end

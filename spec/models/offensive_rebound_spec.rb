@@ -1,17 +1,23 @@
 require 'rails_helper'
 
 RSpec.describe OffensiveRebound, type: :model do
-  it 'is valid with valid attributes' do
-    expect(OffensiveRebound.new).to be_valid
-  end
+  context 'validation tests' do
+    let(:offensive_rebound) { create(:offensive_rebound) }
 
-  it 'is not valid with a non-integer' do
-    free_throw = OffensiveRebound.new(value: 'not-an-integer')
-    expect(free_throw).to_not be_valid
-  end
+    it 'is valid with valid attributes' do
+      expect(offensive_rebound.save).to be true
+    end
 
-  it 'has a value of 1' do
-    free_throw = OffensiveRebound.create
-    expect(free_throw.value).to eq(1)
+    it 'is not valid without a game_id' do
+      offensive_rebound.game_id = nil
+
+      expect(offensive_rebound.save).to be false
+    end
+
+    it 'is not valid if value is not an integer' do
+      offensive_rebound.value = 'not-and-integer'
+
+      expect(offensive_rebound.save).to be false
+    end
   end
 end

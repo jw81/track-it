@@ -1,17 +1,23 @@
 require 'rails_helper'
 
 RSpec.describe Steal, type: :model do
-  it 'is valid with valid attributes' do
-    expect(Steal.new).to be_valid
-  end
+  context 'validation tests' do
+    let(:steal) { create(:steal) }
 
-  it 'is not valid with a non-integer' do
-    free_throw = Steal.new(value: 'not-an-integer')
-    expect(free_throw).to_not be_valid
-  end
+    it 'is valid with valid attributes' do
+      expect(steal.save).to be true
+    end
 
-  it 'has a value of 1' do
-    free_throw = Steal.create
-    expect(free_throw.value).to eq(1)
+    it 'is not valid without a game_id' do
+      steal.game_id = nil
+
+      expect(steal.save).to be false
+    end
+
+    it 'is not valid if value is not an integer' do
+      steal.value = 'not-and-integer'
+
+      expect(steal.save).to be false
+    end
   end
 end

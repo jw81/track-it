@@ -1,17 +1,23 @@
 require 'rails_helper'
 
 RSpec.describe Assist, type: :model do
-  it 'is valid with valid attributes' do
-    expect(Assist.new).to be_valid
-  end
+  context 'validation tests' do
+    let(:assist) { create(:assist) }
 
-  it 'is not valid with a non-integer' do
-    free_throw = Assist.new(value: 'not-an-integer')
-    expect(free_throw).to_not be_valid
-  end
+    it 'is valid with valid attributes' do
+      expect(assist.save).to be true
+    end
 
-  it 'has a value of 1' do
-    free_throw = Assist.create
-    expect(free_throw.value).to eq(1)
+    it 'is not valid without a game_id' do
+      assist.game_id = nil
+
+      expect(assist.save).to be false
+    end
+
+    it 'is not valid if value is not an integer' do
+      assist.value = 'not-and-integer'
+
+      expect(assist.save).to be false
+    end
   end
 end
