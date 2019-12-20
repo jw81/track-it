@@ -13,4 +13,16 @@ class StatsController < ApplicationController
       end
     end
   end
+
+  def destroy
+    @game = Game.find(params[:game_id])
+    @stat = Stat.find(params[:id])
+
+    @stat.destroy
+    respond_to do |format|
+      format.html { redirect_to @game, notice: 'Stat was successfully destroyed.' }
+      format.json { head :no_content }
+    end
+
+  end
 end

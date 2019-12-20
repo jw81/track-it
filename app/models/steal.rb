@@ -7,4 +7,8 @@ class Steal < Stat
   def default_value
     self.value ||= 1
   end
+
+  def self.model_name
+    Stat.model_name
+  end
 end

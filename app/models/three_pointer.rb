@@ -7,4 +7,8 @@ class ThreePointer < Stat
   def default_value
     self.value ||= 3
   end
+
+  def self.model_name
+    Stat.model_name
+  end
 end
