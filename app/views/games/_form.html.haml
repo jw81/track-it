@@ -12,7 +12,7 @@
     = f.collection_select(:opponent_id, Opponent.all, :id, :name)
   .field
     = f.label :location
-    = f.collection_select(:location_id, Location.all, :id, :city)
+    = f.collection_select(:location_id, Location.all, :id, :full_location)
   .field
     = f.label :notes
     = f.text_area :notes
