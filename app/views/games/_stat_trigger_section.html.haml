@@ -1,0 +1,29 @@
+:ruby
+  offensive_stat_types = [
+    Assist,
+    FieldGoal,
+    FreeThrow,
+    OffensiveRebound,
+    ThreePointer
+  ]
+%p
+  %b Offensive Events:
+  = render partial: 'stat_trigger_button', locals: { game: @game, stat_types: offensive_stat_types }
+
+:ruby
+  defensive_stat_types = [
+    Block,
+    DefensiveRebound,
+    Steal
+  ]
+%p
+  %b Defensive Events:
+  = render partial: 'stat_trigger_button', locals: { game: @game, stat_types: defensive_stat_types }
+
+:ruby
+  other_stat_types = [
+    Foul
+  ]
+%p
+  %b Other Events:
+  = render partial: 'stat_trigger_button', locals: { game: @game, stat_types: other_stat_types }
