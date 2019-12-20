@@ -1,0 +1,17 @@
+-# game
+-# game_stats
+%p
+  %b Stat Details Timeline:
+
+%table
+  %thead
+    %tr
+      %th
+      %th
+  %tbody
+    - game_stats.each do |game_stat|
+      %tr
+        %td
+          = game_stat.type
+        %td
+          = link_to 'Destroy', game_stat_path(game_id: game.id, id: game_stat.id), method: :delete, data: { confirm: 'Are you sure?' }
