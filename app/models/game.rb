@@ -6,4 +6,41 @@ class Game < ApplicationRecord
   has_many :stats
   belongs_to :opponent
   belongs_to :location
+
+  def points_total
+    points = 0
+    points += self.stats.where(type: 'FieldGoal').sum('value')
+    points += self.stats.where(type: 'ThreePointer').sum('value')
+    points += self.stats.where(type: 'FreeThrow').sum('value')
+  end
+
+  def offensive_rebounds_total
+    offensive_rebounds = 0
+    offensive_rebounds += self.stats.where(type: 'OffensiveRebound').sum('value')
+  end
+
+  def defensive_rebounds_total
+    defensive_rebounds = 0
+    defensive_rebounds += self.stats.where(type: 'DefensiveRebound').sum('value')
+  end
+
+  def assists_total
+    assists = 0
+    assists += self.stats.where(type: 'Assist').sum('value')
+  end
+
+  def steals_total
+    steals = 0
+    steals += self.stats.where(type: 'Steal').sum('value')
+  end
+
+  def blocks_total
+    blocks = 0
+    blocks += self.stats.where(type: 'Block').sum('value')
+  end
+
+  def fouls_total
+    fouls = 0
+    fouls += self.stats.where(type: 'Foul').sum('value')
+  end
 end

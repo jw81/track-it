@@ -11,7 +11,7 @@
   %b Notes:
   = @game.notes
 
-
+= render partial: 'stat_details_totals', locals: { game: @game }
 = render partial: 'stat_details_timeline', locals: { game: @game, game_stats: @game.stats }
 = link_to 'Edit', edit_game_path(@game)
 \|
