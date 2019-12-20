@@ -1,0 +1,48 @@
+%p#notice= notice
+
+%p
+  %b Opponent:
+  = @game.opponent.name
+%p
+  %b Location:
+  = "#{@game.location.city}, #{@game.location.state}"
+%p
+  %b Notes:
+  = @game.notes
+
+:ruby
+  offensive_stat_types = [
+    Assist,
+    FieldGoal,
+    FreeThrow,
+    OffensiveRebound,
+    ThreePointer
+  ]
+%p
+  %b Offensive Events:
+  - offensive_stat_types.each do |event_type|
+    = button_to event_type.to_s, { controller: 'stats', action: 'create', game_id: @game.id, type: event_type }
+
+:ruby
+  defensive_stat_types = [
+    Block,
+    DefensiveRebound,
+    Steal
+  ]
+%p
+  %b Defensive Events:
+  - defensive_stat_types.each do |event_type|
+    = button_to event_type.to_s, { controller: 'stats', action: 'create', game_id: @game.id, type: event_type }
+
+:ruby
+  other_stat_types = [
+    Foul
+  ]
+%p
+  %b Other Events:
+  - other_stat_types.each do |event_type|
+    = button_to event_type.to_s, { controller: 'stats', action: 'create', game_id: @game.id, type: event_type }
+
+= link_to 'Edit', edit_game_path(@game)
+\|
+= link_to 'Back', games_path
