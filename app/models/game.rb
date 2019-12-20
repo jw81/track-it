@@ -39,6 +39,11 @@ class Game < ApplicationRecord
     blocks += self.stats.where(type: 'Block').sum('value')
   end
 
+  def turnovers_total
+    turnovers = 0
+    turnovers += self.stats.where(type: 'Turnover').sum('value')
+  end
+
   def fouls_total
     fouls = 0
     fouls += self.stats.where(type: 'Foul').sum('value')
