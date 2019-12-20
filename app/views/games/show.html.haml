@@ -1,0 +1,16 @@
+%p#notice= notice
+
+%p
+  %b Opponent:
+  = @game.opponent.name
+%p
+  %b Location:
+  = "#{@game.location.city}, #{@game.location.state}"
+%p
+  %b Notes:
+  = @game.notes
+= render partial: 'stat_trigger_section'
+
+= link_to 'Edit', edit_game_path(@game)
+\|
+= link_to 'Back', games_path
