@@ -13,3 +13,8 @@
  *= require_tree .
  *= require_self
  */
+
+/* TEMPORARY :: Remove this when you begin working on the styling */
+.button_to {
+  margin: 10px 0px;
+}
