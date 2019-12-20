@@ -1,17 +1,23 @@
 require 'rails_helper'
 
 RSpec.describe FieldGoal, type: :model do
-  it 'is valid with valid attributes' do
-    expect(FieldGoal.new).to be_valid
-  end
+  context 'validation tests' do
+    let(:field_goal) { create(:field_goal) }
 
-  it 'is not valid with a non-integer' do
-    free_throw = FieldGoal.new(value: 'not-an-integer')
-    expect(free_throw).to_not be_valid
-  end
+    it 'is valid with valid attributes' do
+      expect(field_goal.save).to be true
+    end
 
-  it 'has a value of 2' do
-    free_throw = FieldGoal.create
-    expect(free_throw.value).to eq(2)
+    it 'is not valid without a game_id' do
+      field_goal.game_id = nil
+
+      expect(field_goal.save).to be false
+    end
+
+    it 'is not valid if value is not an integer' do
+      field_goal.value = 'not-and-integer'
+
+      expect(field_goal.save).to be false
+    end
   end
 end
