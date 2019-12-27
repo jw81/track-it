@@ -1,18 +1,7 @@
-%p#notice= notice
-= render partial: 'stat_trigger_section'
-
-%p
-  %b Opponent:
-  = @game.opponent.name
-%p
-  %b Location:
-  = "#{@game.location.city}, #{@game.location.state}"
-%p
-  %b Notes:
-  = @game.notes
-
-= render partial: 'stat_details_totals', locals: { game: @game }
-= render partial: 'stat_details_timeline', locals: { game: @game, game_stats: @game.stats }
-= link_to 'Edit', edit_game_path(@game)
-\|
-= link_to 'Back', games_path
+.container
+  %p#notice
+    = notice
+  = render partial: 'stat_trigger_section', locals: { game: @game }
+  = render partial: 'stat_details_totals', locals: { game: @game }
+  = render partial: 'stat_details_timeline', locals: { game: @game, game_stats: @game.stats }
+  = render partial: 'overview_details', locals: { game: @game }

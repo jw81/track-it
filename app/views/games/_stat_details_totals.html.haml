@@ -1,50 +1,54 @@
 -# game
-%p
-  %b Stat Totals:
 
-%table
-  %thead
-    %tr
-      %th
-      %th
-  %tbody
-    %tr
-      %td
-        = 'Points'
-      %td
-        = game.points_total
-    %tr
-      %td
-        = 'Offensive Rebounds'
-      %td
-        = game.offensive_rebounds_total
-    %tr
-      %td
-        = 'Defensive Rebounds'
-      %td
-        = game.defensive_rebounds_total
-    %tr
-      %td
-        = 'Assists'
-      %td
-        = game.assists_total
-    %tr
-      %td
-        = 'Steals'
-      %td
-        = game.steals_total
-    %tr
-      %td
-        = 'Blocks'
-      %td
-        = game.blocks_total
-    %tr
-      %td
-        = 'Turnovers'
-      %td
-        = game.turnovers_total
-    %tr
-      %td
-        = 'Fouls'
-      %td
-        = game.fouls_total
+.columns
+  .col
+    %p
+      %b
+        = 'Stat Totals:'
+
+    %table
+      %thead
+        %tr
+          %th
+          %th
+      %tbody
+        %tr
+          %td
+            = 'Points'
+          %td
+            = game.points_total
+        %tr
+          %td
+            = 'Offensive Rebounds'
+          %td
+            = game.offensive_rebounds_total
+        %tr
+          %td
+            = 'Defensive Rebounds'
+          %td
+            = game.defensive_rebounds_total
+        %tr
+          %td
+            = 'Assists'
+          %td
+            = game.assists_total
+        %tr
+          %td
+            = 'Steals'
+          %td
+            = game.steals_total
+        %tr
+          %td
+            = 'Blocks'
+          %td
+            = game.blocks_total
+        %tr
+          %td
+            = 'Turnovers'
+          %td
+            = game.turnovers_total
+        %tr
+          %td
+            = 'Fouls'
+          %td
+            = game.fouls_total

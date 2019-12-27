@@ -1,0 +1,28 @@
+-# game
+
+.columns
+  .col
+    %p
+      %b
+        = 'Overview Details:'
+    %table
+      %thead
+        %tr
+          %th
+          %th
+      %tbody
+        %tr
+          %td
+            = 'Opponent'
+          %td
+            = game.opponent.name
+        %tr
+          %td
+            = 'Location'
+          %td
+            = "#{game.location.city}, #{game.location.state}"
+        %tr
+          %td
+            = 'Notes'
+          %td
+            = game.notes
