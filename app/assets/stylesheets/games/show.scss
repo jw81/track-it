@@ -1,0 +1,44 @@
+.container {
+  width: 95%;
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+.columns {
+  display: flex;
+  justify-content: space-around;
+
+  margin: 10px auto;
+}
+
+.col > p {
+  text-align: center;
+}
+
+.columns input[type='submit'] {
+  padding: 1em 2.4em;
+  font-size: 1.2em;
+  background: #008CBA;
+  color: white;
+  text-align: center;
+
+  // Undo the crap that browsers try to handle on their own
+  -webkit-appearance: none;
+  -moz-appearance: none;
+   appearance: none;
+   border-radius: 0;
+}
+
+.button_to > input[type='submit'] {
+  width: 100%;
+}
+
+@media only screen
+and (min-device-width : 375px)
+and (max-device-width : 667px)
+and (orientation : portrait) {
+  .columns {
+    display: flex;
+    flex-direction: column;
+  }
+}
