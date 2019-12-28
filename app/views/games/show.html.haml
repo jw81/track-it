@@ -1,7 +1,7 @@
 .container
   %p#notice
     = notice
-  = render partial: 'stat_trigger_section', locals: { game: @game }
+  = render partial: 'stat_trigger_section', locals: { game: @game } unless @game.completed
   = render partial: 'stat_details_totals', locals: { game: @game }
   = render partial: 'stat_details_timeline', locals: { game: @game, game_stats: @game.stats }
   = render partial: 'overview_details', locals: { game: @game }
