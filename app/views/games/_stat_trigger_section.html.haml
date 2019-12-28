@@ -37,3 +37,4 @@
       %b
         = 'Other Events:'
       = render partial: 'stat_trigger_button', locals: { game: game, stat_types: other_stat_types }
+      = button_to 'Game Over', { controller: 'games', action: 'complete' }

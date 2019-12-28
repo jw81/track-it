@@ -3,6 +3,9 @@ Rails.application.routes.draw do
 
   root to: 'games#new'
   resources :games do
+    member do
+      post 'complete'
+    end
     resources :stats, only: [:index, :create, :destroy]
   end
 end

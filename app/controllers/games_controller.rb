@@ -1,5 +1,5 @@
 class GamesController < ApplicationController
-  before_action :set_game, only: %i[show edit update]
+  before_action :set_game, only: %i[show edit update complete]
 
   def show; end
 
@@ -32,6 +32,16 @@ class GamesController < ApplicationController
         format.html { render :edit }
         format.json { render json: @game.errors, status: :unprocessable_entity }
       end
+    end
+  end
+
+  def complete
+    @game.completed = true
+
+    if @game.save
+      redirect_to @game, notice: 'Game was successfully completed.'
+    else
+      redirect_to @game, notice: 'Unable to complete game.'
     end
   end
 
