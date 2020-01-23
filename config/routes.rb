@@ -8,4 +8,6 @@ Rails.application.routes.draw do
     end
     resources :stats, only: [:index, :create, :destroy]
   end
+
+  resources :opponents
 end
