@@ -1,0 +1,14 @@
+= form_for @opponent do |f|
+  - if @opponent.errors.any?
+    #error_explanation
+      %h2
+        = "#{pluralize(@opponent.errors.count, "error")} prohibited this Opponent from being saved:"
+      %ul
+        - @opponent.errors.full_messages.each do |message|
+          %li
+            = message
+  .field
+    = f.label :name
+    = f.text_field :name
+  .actions
+    = f.submit 'Save'
