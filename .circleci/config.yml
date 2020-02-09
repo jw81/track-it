@@ -14,9 +14,6 @@ jobs:
       - image: circleci/ruby:2.6.0-stretch-node
     steps:
       - checkout
-      - run:
-          name: Bundle Install
-          command: bundle -v
       - ruby/bundle-install
       - run:
           name: Run Tests
