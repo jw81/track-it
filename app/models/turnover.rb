@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# Represents a turnover statistic
 class Turnover < Stat
   validates :game_id, presence: true
   validates :value, numericality: true

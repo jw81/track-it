@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# Represents a steal statistic
 class Steal < Stat
   validates :game_id, presence: true
   validates :value, numericality: true

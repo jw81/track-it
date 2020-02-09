@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# Represents a game location
 class Location < ApplicationRecord
   validates :city, presence: true
   validates :state, presence: true, length: { is: 2 }
@@ -6,6 +9,6 @@ class Location < ApplicationRecord
   has_many :games
 
   def full_location
-    "#{self.city}, #{self.state}, (#{self.description})"
+    "#{city}, #{state}, (#{description})"
   end
 end

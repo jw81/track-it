@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# Actions for the Stats resource
 class StatsController < ApplicationController
   def create
     @game = Game.find(params[:game_id])
@@ -23,6 +26,5 @@ class StatsController < ApplicationController
       format.html { redirect_to @game, notice: 'Stat was successfully destroyed.' }
       format.json { head :no_content }
     end
-
   end
 end

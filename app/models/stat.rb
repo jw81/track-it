@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# Represents a statistic
 class Stat < ApplicationRecord
   validates :game_id, presence: true
   validates :value, presence: true, numericality: { only_integer: true }

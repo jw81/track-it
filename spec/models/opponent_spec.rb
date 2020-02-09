@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe Opponent, type: :model do
@@ -15,12 +17,12 @@ RSpec.describe Opponent, type: :model do
     end
 
     it 'is not valid without a unique name' do
-      opponent_1 = create(:opponent)
-      opponent_2 = build(:opponent)
+      opponent1 = create(:opponent)
+      opponent2 = build(:opponent)
 
-      opponent_2.name = opponent_1.name
+      opponent2.name = opponent1.name
 
-      expect(opponent_2.save).to eq(false)
+      expect(opponent2.save).to eq(false)
     end
   end
 end
