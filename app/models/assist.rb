@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# Represents a assist statistic
 class Assist < Stat
   validates :game_id, presence: true
   validates :value, numericality: true

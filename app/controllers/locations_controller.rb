@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# Actions for the Locations resource
 class LocationsController < ApplicationController
   before_action :set_location, only: %i[show edit update]
 

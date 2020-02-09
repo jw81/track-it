@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# Represents a foul statistic
 class Foul < Stat
   validates :game_id, presence: true
   validates :value, numericality: true

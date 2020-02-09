@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# Actions for the Opponents resource
 class OpponentsController < ApplicationController
   before_action :set_opponent, only: %i[show edit update]
 

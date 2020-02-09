@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# Represents an offensive rebound statistic
 class OffensiveRebound < Stat
   validates :game_id, presence: true
   validates :value, numericality: true

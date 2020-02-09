@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# Actions for the Games resource
 class GamesController < ApplicationController
   before_action :set_game, only: %i[show edit update complete]
 
