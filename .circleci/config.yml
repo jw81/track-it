@@ -17,7 +17,7 @@ jobs:
       - ruby/bundle-install
       - run:
           name: Run Tests
-          command: rspec spec
+          command: bundle exec rspec spec
 
 # What to do next? Set up a test job. Please see
 # https://circleci.com/docs/2.0/configuration-reference/, for more  info on how to get started.
