@@ -28,7 +28,7 @@ jobs:
           command: bundle exec rubocop --format html -o tmp/test-results/rubocop/results.html
 
       - store_artifacts:
-        path: ./tmp/test-results
+          path: ./tmp/test-results
 
 # What to do next? Set up a test job. Please see
 # https://circleci.com/docs/2.0/configuration-reference/, for more  info on how to get started.
