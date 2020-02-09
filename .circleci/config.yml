@@ -17,7 +17,9 @@ jobs:
           POSTGRES_DB: track-it_test
     steps:
       - checkout
-      - ruby/bundle-install
+      - run:
+          name: Bundle Install
+          command: bundle install
       - run:
           name: Run Tests
           command: bundle exec rspec spec
