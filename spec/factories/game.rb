@@ -2,7 +2,7 @@
 
 FactoryBot.define do
   factory :game do
-    notes { Faker::Lorem.characters }
+    notes { Faker::Lorem.characters(number: 999) }
     opponent
     location
   end

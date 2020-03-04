@@ -18,7 +18,7 @@ RSpec.describe Game, type: :model do
       expect(game.save).to eq(false)
     end
 
-    it 'is not valid when note is longer than 255 characters' do
+    it 'is not valid when note is longer than 1000 characters' do
       game = create(:game)
       game.notes += 'this will make the note too long'
 
