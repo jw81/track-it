@@ -5,6 +5,7 @@ class Game < ApplicationRecord
   validates :opponent_id, presence: true
   validates :location_id, presence: true
   validates :notes, length: { maximum: 1000 }, allow_blank: true
+  enum result: %w[win loss]
 
   has_many :stats
   belongs_to :opponent

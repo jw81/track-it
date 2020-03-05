@@ -16,5 +16,8 @@
   .field
     = f.label :notes
     = f.text_area :notes
+  .field
+    = f.label :result
+    = f.select(:result, Game.results.keys.map {|result| [result.titleize, result]})
   .actions
     = f.submit 'Save'
