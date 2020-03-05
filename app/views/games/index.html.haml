@@ -5,6 +5,7 @@
     %tr
       %th Opponent Name
       %th Notes
+      %th Result
       %th
       %th
 
@@ -15,6 +16,8 @@
           = game.opponent.name
         %td
           = game.notes
+        %td
+          = game.result.present? ? game.result.titleize : 'N/A'
         %td
           = link_to 'Show', game
         %td

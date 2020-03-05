@@ -23,6 +23,11 @@
             = "#{game.location.city}, #{game.location.state}"
         %tr
           %td
+            = 'Result'
+          %td
+            = game.result.present? ? game.result.titleize : 'N/A'
+        %tr
+          %td
             = 'Notes'
           %td
             = game.notes

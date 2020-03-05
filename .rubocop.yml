@@ -27,6 +27,7 @@ Metrics/MethodLength:
 
 Metrics/BlockLength:
   Max: 30
+  ExcludedMethods: ['describe']
 
 Metrics/AbcSize:
   Max: 65

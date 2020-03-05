@@ -24,5 +24,25 @@ RSpec.describe Game, type: :model do
 
       expect(game.save).to eq(false)
     end
+
+    context 'setting the result' do
+      it 'allows setting a win' do
+        game = create(:game)
+        game.win!
+
+        expect(game.win?).to be true
+      end
+
+      it 'allows setting a loss' do
+        game = create(:game)
+        game.loss!
+
+        expect(game.loss?).to be true
+      end
+
+      it 'raises an error with any other value' do
+        expect { game.result = 'bananas' }.to raise_error(ArgumentError)
+      end
+    end
   end
 end
