@@ -13,6 +13,11 @@
       %tbody
         %tr
           %td
+            = 'Date Played'
+          %td
+            = game.date_played.present? ? simple_date_format(game.date_played) : 'N/A'
+        %tr
+          %td
             = 'Opponent'
           %td
             = game.opponent.name
