@@ -19,5 +19,8 @@
   .field
     = f.label :result
     = f.select(:result, Game.results.keys.map {|result| [result.titleize, result]})
+  .field
+    = f.label :date_played
+    = f.date_field(:date_played)
   .actions
     = f.submit 'Save'

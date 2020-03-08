@@ -3,6 +3,7 @@
 %table
   %thead
     %tr
+      %th Date Played
       %th Opponent Name
       %th Notes
       %th Result
@@ -12,6 +13,8 @@
   %tbody
     - @games.each do |game|
       %tr
+        %td
+          = game.date_played.present? ? simple_date_format(game.date_played) : 'N/A'
         %td
           = game.opponent.name
         %td
