@@ -2,6 +2,8 @@
 
 # Actions for the Games resource
 class GamesController < ApplicationController
+  before_action :authenticate_account!, except: %i[index show]
+  before_action :validate_account, except: %i[index show]
   before_action :set_game, only: %i[show edit update complete]
 
   def index
