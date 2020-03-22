@@ -1,5 +1,17 @@
+:ruby
+  text = <<-HEREDOC
+  A simple web app for tracking basketball player stats.
+  Specifically, tracking the basketball stats for my daughter.
+  This is very much a work-in-progress with many, many enhancements to come.
+  (and just as many bugs to squish)
+  HEREDOC
+
+
 .container
   .jumbotron
     .container
       %p
-        = 'A simple web app for tracking basketball player stats.'
+        = text
+      %p
+        %a.btn.btn-primary.btn-lg{ href: games_path, role: 'button' }
+          = 'View Past Games'
