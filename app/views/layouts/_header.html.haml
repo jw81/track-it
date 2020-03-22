@@ -1,0 +1,9 @@
+%nav.navbar.mb-3
+  %span.navbar-brand.mb-0.h1
+    = 'TrackIt'
+  .float-right
+    - if account_signed_in?
+      = link_to 'Log Out', destroy_account_session_path, method: :delete, class: 'btn btn-outline-primary'
+    - else
+      = link_to 'Log In', new_account_session_path, class: 'btn btn-outline-primary'
+      = link_to 'Sign Up', new_account_registration_path, class: 'btn btn-primary'
