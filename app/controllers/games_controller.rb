@@ -5,7 +5,7 @@ class GamesController < ApplicationController
   before_action :set_game, only: %i[show edit update complete]
 
   def index
-    @games = Game.all
+    @games = Game.all.order(date_played: :asc)
   end
 
   def show; end
