@@ -28,6 +28,11 @@ class Game < ApplicationRecord
     defensive_rebounds + stats.where(type: 'DefensiveRebound').sum('value')
   end
 
+  def rebounds_total
+    total_rebounds = 0
+    total_rebounds + (offensive_rebounds_total + defensive_rebounds_total)
+  end
+
   def assists_total
     assists = 0
     assists + stats.where(type: 'Assist').sum('value')
