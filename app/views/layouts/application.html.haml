@@ -10,5 +10,8 @@
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body
     = render partial: 'layouts/header'
-    = yield
-    = render partial: 'layouts/footer'
+    .container
+      .row
+        .col-sm-12
+          = yield
+    -# = render partial: 'layouts/footer'

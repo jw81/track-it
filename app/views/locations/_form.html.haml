@@ -1,20 +1,22 @@
-= form_for @location do |f|
-  - if @location.errors.any?
-    #error_explanation
-      %h2
-        = "#{pluralize(@location.errors.count, "error")} prohibited this Location from being saved:"
-      %ul
-        - @location.errors.full_messages.each do |message|
-          %li
-            = message
-  .field
-    = f.label :city
-    = f.text_field :city
-  .field
-    = f.label :state
-    = f.text_field :state
-  .field
-    = f.label :description
-    = f.text_field :description
-  .actions
-    = f.submit 'Save'
+.row
+  .col-sm-6
+    = form_for @location do |f|
+      - if @location.errors.any?
+        #error_explanation
+          %h2
+            = "#{pluralize(@location.errors.count, "error")} prohibited this Location from being saved:"
+          %ul
+            - @location.errors.full_messages.each do |message|
+              %li
+                = message
+      .form-group
+        = label_tag :city
+        = f.text_field :city, class: 'form-control'
+      .form-group
+        = label_tag :state
+        = f.text_field :state, class: 'form-control'
+      .form-group
+        = label_tag :description
+        = f.text_field :description, class: 'form-control'
+      .actions
+        = f.submit 'Save', class: 'btn btn-primary'

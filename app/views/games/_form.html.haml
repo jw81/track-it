@@ -1,26 +1,31 @@
-= form_for @game do |f|
-  - if @game.errors.any?
-    #error_explanation
-      %h2
-        = "#{pluralize(@game.errors.count, "error")} prohibited this Game from being saved:"
-      %ul
-        - @game.errors.full_messages.each do |message|
-          %li
-            = message
-  .field
-    = f.label :opponent
-    = f.collection_select(:opponent_id, Opponent.all, :id, :name)
-  .field
-    = f.label :location
-    = f.collection_select(:location_id, Location.all, :id, :full_location)
-  .field
-    = f.label :notes
-    = f.text_area :notes
-  .field
-    = f.label :result
-    = f.select(:result, Game.results.keys.map {|result| [result.titleize, result]})
-  .field
-    = f.label :date_played
-    = f.date_field(:date_played)
-  .actions
-    = f.submit 'Save'
+.row
+  .col-sm-6
+    = form_for @game do |f|
+      - if @game.errors.any?
+        #error_explanation
+          %h2
+            = "#{pluralize(@game.errors.count, "error")} prohibited this Game from being saved:"
+          %ul
+            - @game.errors.full_messages.each do |message|
+              %li
+                = message
+      .form-group
+        = label_tag :opponent
+        = f.collection_select(:opponent_id, Opponent.all, :id, :name, {}, { class: 'form-control' })
+      .form-group
+        = label_tag :location
+        = f.collection_select(:location_id, Location.all, :id, :full_location, {}, { class: 'form-control' })
+      .form-group
+        = label_tag :notes
+        = f.text_area :notes, class: 'form-control'
+      .form-group
+        = label_tag :result
+        :ruby
+          options = { include_blank: true }
+          html_options = { class: 'form-control' }
+        = f.select(:result, Game.results.keys.map {|result| [result.titleize, result]}, options, html_options)
+      .form-group
+        = label_tag :date_played
+        = f.date_field(:date_played, class: 'form-control')
+      .actions
+        = f.submit 'Save', class: 'btn btn-primary'
