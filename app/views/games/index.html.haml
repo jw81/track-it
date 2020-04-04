@@ -5,7 +5,7 @@
         .card-header
           = link_to game.opponent.name, game
           %span.float-right
-            = game.date_played.strftime('%b %d, \'%y')
+            = game.date_played.present? ? game.date_played.strftime('%b %d, \'%y') : 'N/A'
         .card-body
           %ul.list-group.list-group-flush
             - %w[points rebounds assists steals blocks].each do |stat|
