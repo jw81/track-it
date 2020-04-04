@@ -24,6 +24,8 @@
             %span
               = game.result.present? ? game.result.titleize : 'N/A'
           %li.list-group-item.d-flex.justify-content-between.align-items-center
-            = 'Notes'
-            %span
-              = game.notes
+            .row
+              .col-12
+                = 'Notes'
+              .col-12
+                = game.notes
