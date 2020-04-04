@@ -1,54 +1,14 @@
 -# game
 
-.columns
-  .col
-    %p
-      %b
-        = 'Stat Totals:'
-
-    %table
-      %thead
-        %tr
-          %th
-          %th
-      %tbody
-        %tr
-          %td
-            = 'Points'
-          %td
-            = game.points_total
-        %tr
-          %td
-            = 'Offensive Rebounds'
-          %td
-            = game.offensive_rebounds_total
-        %tr
-          %td
-            = 'Defensive Rebounds'
-          %td
-            = game.defensive_rebounds_total
-        %tr
-          %td
-            = 'Assists'
-          %td
-            = game.assists_total
-        %tr
-          %td
-            = 'Steals'
-          %td
-            = game.steals_total
-        %tr
-          %td
-            = 'Blocks'
-          %td
-            = game.blocks_total
-        %tr
-          %td
-            = 'Turnovers'
-          %td
-            = game.turnovers_total
-        %tr
-          %td
-            = 'Fouls'
-          %td
-            = game.fouls_total
+.row.mt-4.justify-content-center
+  .col-sm-6
+    .card
+      %h5.card-header
+        = 'Stat Totals'
+      .card-body
+        %ul.list-group.list-group-flush
+          - %w[points offensive_rebounds defensive_rebounds assists steals blocks turnovers fouls].each do |stat|
+            %li.list-group-item.d-flex.justify-content-between.align-items-center
+              = stat.humanize.split.map(&:capitalize).join(' ')
+              %span.badge.badge-primary.badge-pill
+                = game.send("#{stat}_total")

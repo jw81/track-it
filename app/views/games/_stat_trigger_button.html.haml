@@ -1,5 +1,4 @@
 -# game
--# stat_types
+-# stat_type
 
-- stat_types.each do |stat_type|
-  = button_to stat_type.to_s, { controller: 'stats', action: 'create', game_id: game.id, type: stat_type }
+= button_to stat_type.to_s, { controller: 'stats', action: 'create', game_id: game.id, type: stat_type }, { class: 'stat-trigger' }

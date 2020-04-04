@@ -1,38 +1,29 @@
 -# game
 
-.columns
-  .col
-    %p
-      %b
-        = 'Overview Details:'
-    %table
-      %thead
-        %tr
-          %th
-          %th
-      %tbody
-        %tr
-          %td
+.row.mt-4.pb-4.justify-content-center
+  .col-sm-6
+    .card
+      %h5.card-header
+        = 'Overview Details'
+      .card-body
+        %ul.list-group.list-group-flush
+          %li.list-group-item.d-flex.justify-content-between.align-items-center
             = 'Date Played'
-          %td
-            = game.date_played.present? ? simple_date_format(game.date_played) : 'N/A'
-        %tr
-          %td
+            %span
+              = game.date_played.present? ? simple_date_format(game.date_played) : 'N/A'
+          %li.list-group-item.d-flex.justify-content-between.align-items-center
             = 'Opponent'
-          %td
-            = game.opponent.name
-        %tr
-          %td
+            %span
+              = game.opponent.name
+          %li.list-group-item.d-flex.justify-content-between.align-items-center
             = 'Location'
-          %td
-            = "#{game.location.city}, #{game.location.state}"
-        %tr
-          %td
+            %span
+              = "#{game.location.city}, #{game.location.state}"
+          %li.list-group-item.d-flex.justify-content-between.align-items-center
             = 'Result'
-          %td
-            = game.result.present? ? game.result.titleize : 'N/A'
-        %tr
-          %td
+            %span
+              = game.result.present? ? game.result.titleize : 'N/A'
+          %li.list-group-item.d-flex.justify-content-between.align-items-center
             = 'Notes'
-          %td
-            = game.notes
+            %span
+              = game.notes

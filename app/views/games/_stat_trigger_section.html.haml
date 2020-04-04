@@ -8,33 +8,38 @@
     OffensiveRebound,
     ThreePointer
   ]
-.columns
-  .col
-    %p
-      %b
-        = 'Offensive Events:'
-      = render partial: 'stat_trigger_button', locals: { game: game, stat_types: offensive_stat_types }
+  defensive_stat_types = [
+    Block,
+    DefensiveRebound,
+    Steal
+  ]
+  other_stat_types = [
+    Turnover,
+    Foul
+  ]
 
-  :ruby
-    defensive_stat_types = [
-      Block,
-      DefensiveRebound,
-      Steal
-    ]
-  .col
-    %p
-      %b
-        = 'Defensive Events:'
-      = render partial: 'stat_trigger_button', locals: { game: game, stat_types: defensive_stat_types }
 
-  :ruby
-    other_stat_types = [
-      Turnover,
-      Foul
-    ]
-  .col
-    %p
-      %b
-        = 'Other Events:'
-      = render partial: 'stat_trigger_button', locals: { game: game, stat_types: other_stat_types }
-      = button_to 'Game Over', { controller: 'games', action: 'complete' }
+.row.mb-4
+  .col-sm-4.pb-3
+    %p.h5.pb-1.border-bottom
+      = 'Offensive'
+    .row
+      - offensive_stat_types.each do |stat_type|
+        .col-12.mb-2
+          = render partial: 'stat_trigger_button', locals: { game: game, stat_type: stat_type }
+  .col-sm-4.pb-3
+    %p.h5.pb-1.border-bottom
+      = 'Defensive'
+    .row
+      - defensive_stat_types.each do |stat_type|
+        .col-12.mb-2
+          = render partial: 'stat_trigger_button', locals: { game: game, stat_type: stat_type }
+  .col-sm-4.pb-3
+    %p.h5.pb-1.border-bottom
+      = 'Other'
+    .row
+      - other_stat_types.each do |stat_type|
+        .col-12.mb-2
+          = render partial: 'stat_trigger_button', locals: { game: game, stat_type: stat_type }
+      .col-12.mb-2
+        = button_to 'Game Over', { controller: 'games', action: 'complete' }, { class: 'stat-trigger' }
