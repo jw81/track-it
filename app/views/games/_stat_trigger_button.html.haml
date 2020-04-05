@@ -1,4 +1,14 @@
 -# game
--# stat_type
+  stat_type
 
-= button_to stat_type.to_s, { controller: 'stats', action: 'create', game_id: game.id, type: stat_type }, { class: 'stat-trigger' }
+:ruby
+  options = {
+    controller: 'stats',
+    action: 'create',
+    game_id: game.id,
+    type: stat_type
+  }
+  html_options = {
+    class: 'stat-trigger'
+  }
+= button_to stat_type.to_s, options, html_options

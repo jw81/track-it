@@ -1,6 +1,6 @@
 %h1
-  = 'Editing Opponent'
+  Editing Opponent
 
-= render 'form'
+= render partial: 'form', locals: { opponent: @opponent }
 
 = link_to 'Show', @opponent

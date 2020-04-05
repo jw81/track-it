@@ -22,24 +22,24 @@
 .row.mb-4
   .col-sm-4.pb-3
     %p.h5.pb-1.border-bottom
-      = 'Offensive'
+      Offensive
     .row
       - offensive_stat_types.each do |stat_type|
         .col-12.mb-2
           = render partial: 'stat_trigger_button', locals: { game: game, stat_type: stat_type }
   .col-sm-4.pb-3
     %p.h5.pb-1.border-bottom
-      = 'Defensive'
+      Defensive
     .row
       - defensive_stat_types.each do |stat_type|
         .col-12.mb-2
           = render partial: 'stat_trigger_button', locals: { game: game, stat_type: stat_type }
   .col-sm-4.pb-3
     %p.h5.pb-1.border-bottom
-      = 'Other'
+      Other
     .row
       - other_stat_types.each do |stat_type|
         .col-12.mb-2
           = render partial: 'stat_trigger_button', locals: { game: game, stat_type: stat_type }
       .col-12.mb-2
-        = button_to 'Game Over', { controller: 'games', action: 'complete' }, { class: 'stat-trigger' }
+        = button_to 'Game Over', { controller: 'games', action: 'complete' }, class: 'stat-trigger'

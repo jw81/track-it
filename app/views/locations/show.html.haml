@@ -3,15 +3,15 @@
 
 %p
   %b
-    = 'City:'
+    City:
   = @location.city
   %br
   %b
-    = 'State:'
+    State:
   = @location.state
   %br
   %b
-    = 'Description:'
+    Description:
   = @location.description
 
 = link_to 'Edit', edit_location_path(@location)

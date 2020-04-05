@@ -4,28 +4,28 @@
   .col-sm-6
     .card
       %h5.card-header
-        = 'Overview Details'
+        Overview Details
       .card-body
         %ul.list-group.list-group-flush
           %li.list-group-item.d-flex.justify-content-between.align-items-center
-            = 'Date Played'
+            Date Played
             %span
               = game.date_played.present? ? simple_date_format(game.date_played) : 'N/A'
           %li.list-group-item.d-flex.justify-content-between.align-items-center
-            = 'Opponent'
+            Opponent
             %span
               = game.opponent.name
           %li.list-group-item.d-flex.justify-content-between.align-items-center
-            = 'Location'
+            Location
             %span
-              = "#{game.location.city}, #{game.location.state}"
+              #{game.location.city}, #{game.location.state}
           %li.list-group-item.d-flex.justify-content-between.align-items-center
-            = 'Result'
+            Result
             %span
               = game.result.present? ? game.result.titleize : 'N/A'
           %li.list-group-item.d-flex.justify-content-between.align-items-center
             .row
               .col-12
-                = 'Notes'
+                Notes
               .col-12
                 = game.notes
