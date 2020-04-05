@@ -1,6 +1,6 @@
 %h1
-  = 'Editing Location'
+  Editing Location
 
-= render 'form'
+= render partial: 'form', locals: { location: @location }
 
 = link_to 'Show', @location

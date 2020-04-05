@@ -1,12 +1,14 @@
+-# opponent
+
 .row
   .col-sm-6
-    = form_for @opponent do |f|
-      - if @opponent.errors.any?
+    = form_for opponent do |f|
+      - if opponent.errors.any?
         #error_explanation
           %h2
-            = "#{pluralize(@opponent.errors.count, "error")} prohibited this Opponent from being saved:"
+            #{pluralize(opponent.errors.count, 'error')} prohibited this Opponent from being saved:
           %ul
-            - @opponent.errors.full_messages.each do |message|
+            - opponent.errors.full_messages.each do |message|
               %li
                 = message
       .form-group

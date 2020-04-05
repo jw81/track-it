@@ -1,5 +1,5 @@
 %h2 New Game
 
-= render 'form'
+= render partial: 'form', locals: { game: @game }
 
 = link_to 'Back', games_path

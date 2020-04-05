@@ -1,8 +1,11 @@
 !!!
 %html
   %head
-    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
-    %meta{:content => "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no", :name => "viewport"}/
+    %meta{ :content => 'text/html; charset=UTF-8', 'http-equiv' => 'Content-Type' }/
+    :ruby
+      meta_content = 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no'
+      meta_name = 'viewport'
+    %meta{ content: meta_content, name: meta_name }/
     %title TrackIt
     = csrf_meta_tags
     = csp_meta_tag
@@ -14,4 +17,3 @@
       .row
         .col-sm-12
           = yield
-    -# = render partial: 'layouts/footer'

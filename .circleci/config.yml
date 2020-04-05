@@ -26,6 +26,9 @@ jobs:
       - run:
           name: Run Rubocop
           command: bundle exec rubocop --format html -o tmp/test-results/rubocop/results.html
+      - run:
+          name: Run Haml-Lint
+          command: bundle exec haml-lint app/views
 
       - store_artifacts:
           path: ./tmp/test-results
