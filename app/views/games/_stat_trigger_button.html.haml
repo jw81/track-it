@@ -9,6 +9,6 @@
     type: stat_type
   }
   html_options = {
-    class: 'stat-trigger'
+    class: 'btn btn-block btn-outline-primary stat-trigger text-uppercase'
   }
-= button_to stat_type.to_s, options, html_options
+= button_to stat_type.to_s.underscore.humanize, options, html_options

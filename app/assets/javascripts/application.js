@@ -17,3 +17,42 @@
 //= require jquery3
 //= require popper
 //= require bootstrap-sprockets
+
+$(document).on("turbolinks:load", function() {
+  // keeps "dark mode" toggle from flashing on page load.
+  //  prob should find an alternative solution sometime
+  Turbolinks.clearCache();
+
+  function switchTheme(e) {
+    if (e.target.checked) {
+      document.documentElement.setAttribute('data-theme', 'dark');
+      localStorage.setItem('theme', 'dark');
+      $('#sun').show();
+      $('#moon').hide();
+    }
+    else {
+      document.documentElement.setAttribute('data-theme', 'light');
+      localStorage.setItem('theme', 'light');
+      $('#moon').show();
+      $('#sun').hide();
+    }
+  }
+
+  const toggleSwitch = $('#dark_switch');
+  const currentTheme = localStorage.getItem('theme') ? localStorage.getItem('theme') : null;
+
+  if (currentTheme) {
+      document.documentElement.setAttribute('data-theme', currentTheme);
+
+      if (currentTheme === 'dark') {
+          toggleSwitch.prop('checked', true);
+          $('#sun').show();
+          $('#moon').hide();
+      } else {
+        $('#moon').show();
+        $('#sun').hide();
+      }
+   }
+
+  toggleSwitch.change(switchTheme);
+});

@@ -20,6 +20,7 @@
                       data: {
                         confirm: 'Are you sure?'
                       },
-                      class: 'btn btn-outline-danger'
+                      class: 'btn btn-outline-danger text-uppercase',
+                      remote: true
                     }
-                  = link_to 'Destroy', path, options
+                  = button_to 'Destroy', path, options
