@@ -42,4 +42,5 @@
         .col-12.mb-2
           = render partial: 'stat_trigger_button', locals: { game: game, stat_type: stat_type }
       .col-12.mb-2
-        = button_to 'Game Over', { controller: 'games', action: 'complete' }, class: 'stat-trigger'
+        - classes = 'btn btn-block btn-outline-primary stat-trigger text-uppercase'
+        = button_to 'Game Over', { controller: 'games', action: 'complete' }, class: classes

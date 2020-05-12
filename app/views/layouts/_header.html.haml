@@ -2,6 +2,11 @@
   .row
     .col-12.pt-3.pb-3.mb-4.border-bottom
       .float-right
+        .custom-control.custom-switch
+          %input.custom-control-input#dark_switch{ type: 'checkbox' }
+          %label.custom-control-label{ for: 'dark_switch' }
+            = icon('far', 'moon', id: 'moon')
+            = icon('far', 'sun', id: 'sun')
         - if account_signed_in?
           = link_to 'Log Out', destroy_account_session_path, method: :delete, class: 'btn btn-outline-primary'
         - else
