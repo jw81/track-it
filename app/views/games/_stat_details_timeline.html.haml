@@ -7,20 +7,6 @@
       %h5.card-header
         Stats Timeline
       .card-body
-        %ul.list-group.list-group-flush
+        %ul.list-group.list-group-flush#stats-timeline
           - game_stats.each do |stat|
-            %li.list-group-item.d-flex.justify-content-between.align-items-center
-              = stat.class.to_s.underscore.humanize.split.map(&:capitalize).join(' ')
-              - unless game.completed
-                %span
-                  :ruby
-                    path = game_stat_path(game_id: game.id, id: stat.id)
-                    options = {
-                      method: :delete,
-                      data: {
-                        confirm: 'Are you sure?'
-                      },
-                      class: 'btn btn-outline-danger text-uppercase',
-                      remote: true
-                    }
-                  = button_to 'Destroy', path, options
+            = render partial: 'stat_details_entry', locals: { game: game, stat: stat }
