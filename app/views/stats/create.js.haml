@@ -1,6 +1,8 @@
 :ruby
   stats_timeline_content = j (render partial: 'games/stat_details_entry', locals: {game: @game, stat: @stat})
   stats_totals_content = j (render partial: 'games/stat_details_totals', locals: { game: @game })
+  stat_trigger = "#{@stat.type.to_s.downcase}-trigger"
 
 $('#stats-totals').replaceWith("#{stats_totals_content}");
 $('#stats-timeline').append("#{stats_timeline_content}");
+$("##{stat_trigger}").fadeOut(500).fadeIn(500).fadeOut(500).fadeIn(500);
