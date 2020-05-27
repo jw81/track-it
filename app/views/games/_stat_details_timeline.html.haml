@@ -7,6 +7,6 @@
       %h5.card-header
         Stats Timeline
       .card-body
-        %ul.list-group.list-group-flush#stats-timeline
+        %ul.list-group.list-group-flush#stats_timeline
           - game_stats.each do |stat|
             = render partial: 'stat_details_entry', locals: { game: game, stat: stat }
