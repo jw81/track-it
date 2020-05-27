@@ -8,10 +8,8 @@ class StatsController < ApplicationController
 
     respond_to do |format|
       if @stat.save
-        format.html { redirect_to @game, notice: 'Stat was successfully created.' }
-        format.json { render json: 'Do something here.', location: @stat }
+        format.js
       else
-        format.html { redirect_to @game, notice: 'Unable to process Stat.' }
         format.json { render json: @stat.errors, status: :unprocessable_entity }
       end
     end
