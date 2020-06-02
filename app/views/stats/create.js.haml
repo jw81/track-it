@@ -1,5 +1,10 @@
 :ruby
-  stats_timeline_content = j(render(partial: 'games/stat_details_entry', locals: { game: @game, stat: @stat }))
+  locals = {
+    account: @game.account,
+    game: @game,
+    stat: @stat
+  }
+  stats_timeline_content = j(render(partial: 'games/stat_details_entry', locals: locals))
   stats_totals_content = j(render(partial: 'games/stat_details_totals', locals: { game: @game }))
   stat_trigger = "#{@stat.type.to_s.downcase}-trigger"
 

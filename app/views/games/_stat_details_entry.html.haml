@@ -1,8 +1,9 @@
--# game
+-# account
+  game
   stat
 %li.list-group-item.d-flex.justify-content-between.align-items-center
   = stat.class.to_s.underscore.humanize.split.map(&:capitalize).join(' ')
-  - unless game.completed
+  - unless game.completed || account.nil? || account.id != game.account.id
     %span
       :ruby
         path = game_stat_path(game_id: game.id, id: stat.id)
