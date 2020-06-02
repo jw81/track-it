@@ -8,8 +8,9 @@ class Game < ApplicationRecord
   enum result: %w[win loss]
 
   has_many :stats
-  belongs_to :opponent
+  belongs_to :account
   belongs_to :location
+  belongs_to :opponent
 
   def points_total
     points = 0

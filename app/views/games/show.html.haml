@@ -1,7 +1,14 @@
 .container
   %p#notice
     = notice
-  = render partial: 'stat_trigger_section', locals: { game: @game } unless @game.completed
+  - unless @game.completed || current_account.nil? || current_account.id != @game.account_id
+    = render partial: 'stat_trigger_section', locals: { game: @game }
   = render partial: 'stat_details_totals', locals: { game: @game }
-  = render partial: 'stat_details_timeline', locals: { game: @game, game_stats: @game.stats }
+  :ruby
+    locals = {
+      account: current_account,
+      game: @game,
+      game_stats: @game.stats
+    }
+  = render partial: 'stat_details_timeline', locals: locals
   = render partial: 'overview_details', locals: { game: @game }
