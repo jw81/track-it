@@ -5,5 +5,6 @@ FactoryBot.define do
     notes { Faker::Lorem.characters(number: 999) }
     opponent
     location
+    association :account
   end
 end
