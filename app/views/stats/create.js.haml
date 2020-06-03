@@ -9,5 +9,5 @@
   stat_trigger = "#{@stat.type.to_s.downcase}-trigger"
 
 $('#stats_totals').replaceWith("#{stats_totals_content}");
-$('#stats_timeline').append("#{stats_timeline_content}");
+$('#stats_timeline').prepend("#{stats_timeline_content}");
 $("##{stat_trigger}").fadeOut(500).fadeIn(500).fadeOut(500).fadeIn(500);
