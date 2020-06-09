@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     resources :stats, only: [:index, :create, :destroy]
   end
 
-  resources :opponents
+  resources :athletes
   resources :locations
+  resources :opponents
 end

@@ -1,0 +1,24 @@
+%h1
+  Athletes
+
+%table
+  %thead
+    %tr
+      %th
+        First Name
+      %th
+        Last Name
+      %th
+      %th
+
+  %tbody
+    - @athletes.each do |athlete|
+      %tr
+        %td
+          = athlete.first_name
+        %td
+          = athlete.last_name
+        %td
+          = link_to 'Show', athlete
+        %td
+          = link_to 'Edit', edit_athlete_path(athlete)

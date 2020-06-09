@@ -8,4 +8,5 @@ class Account < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :games
+  has_many :athletes
 end

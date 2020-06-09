@@ -33,7 +33,7 @@ class OpponentsController < ApplicationController
   def update
     respond_to do |format|
       if @opponent.update(opponent_params)
-        format.html { redirect_to @opponent, notice: 'Opponent was successfully created.' }
+        format.html { redirect_to @opponent, notice: 'Opponent was successfully updated.' }
         format.json { render :show, status: :ok, location: @opponent }
       else
         format.html { render :edit }

@@ -1,0 +1,15 @@
+%p#notice
+  = notice
+
+%p
+  %b
+    First Name:
+  = @athlete.first_name
+%p
+  %b
+    Last Name:
+  = @athlete.last_name
+
+= link_to 'Edit', edit_athlete_path(@athlete)
+\|
+= link_to 'Back', athletes_path
