@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_08_125938) do
+ActiveRecord::Schema.define(version: 2020_06_09_121441) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -51,7 +51,9 @@ ActiveRecord::Schema.define(version: 2020_06_08_125938) do
     t.integer "result"
     t.date "date_played"
     t.bigint "account_id"
+    t.bigint "athlete_id"
     t.index ["account_id"], name: "index_games_on_account_id"
+    t.index ["athlete_id"], name: "index_games_on_athlete_id"
     t.index ["location_id"], name: "index_games_on_location_id"
     t.index ["opponent_id"], name: "index_games_on_opponent_id"
   end
@@ -81,6 +83,7 @@ ActiveRecord::Schema.define(version: 2020_06_08_125938) do
 
   add_foreign_key "athletes", "accounts"
   add_foreign_key "games", "accounts"
+  add_foreign_key "games", "athletes"
   add_foreign_key "games", "locations"
   add_foreign_key "games", "opponents"
   add_foreign_key "stats", "games"

@@ -13,6 +13,7 @@ class GamesController < ApplicationController
   def show; end
 
   def new
+    redirect_to new_athlete_path, notice: "Looks like you do not have any Athletes.  Let's create one now!" unless has_athletes?
     @game = Game.new
   end
 
@@ -62,6 +63,10 @@ class GamesController < ApplicationController
   end
 
   def game_params
-    params.require(:game).permit(:opponent_id, :location_id, :notes, :result, :date_played)
+    params.require(:game).permit(:athlete_id, :opponent_id, :location_id, :notes, :result, :date_played)
+  end
+
+  def has_athletes?
+    return true if Athlete.where(account_id: current_account.id).count > 0
   end
 end

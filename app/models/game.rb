@@ -2,12 +2,14 @@
 
 # Represents a basketball game
 class Game < ApplicationRecord
+  validates :athlete_id, presence: true
   validates :opponent_id, presence: true
   validates :location_id, presence: true
   validates :notes, length: { maximum: 1000 }, allow_blank: true
   enum result: %w[win loss]
 
   has_many :stats
+  belongs_to :athlete
   belongs_to :account
   belongs_to :location
   belongs_to :opponent

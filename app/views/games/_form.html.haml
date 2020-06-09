@@ -12,6 +12,9 @@
               %li
                 = message
       .form-group
+        = label_tag :athlete
+        = f.collection_select(:athlete_id, Athlete.where(account_id: current_account.id), :id, :name, {}, class: 'form-control')
+      .form-group
         = label_tag :opponent
         = f.collection_select(:opponent_id, Opponent.all, :id, :name, {}, class: 'form-control')
       .form-group
